@@ -10,37 +10,29 @@ datasource db {
 }
 
 model Category {
-  id          Int       @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   name        String
   description String
   Board       Board[]
 }
 
-model Role {
-  id   Int    @id @default(autoincrement())
-  name String
+model Retros {
+  id       Int    @id @default(autoincrement())
+  teamName String
+  passCode String
 
   Users Users[]
   @@index([id])
 }
 
-model Retros {
-  id       Int    @id @default(autoincrement())
-  teamName String
-
-  @@index([id])
-}
-
 model Users {
-  id      Int    @id @default(autoincrement())
-  name    String
-  email   String
-  role    Role?  @relation(fields: [role_id], references: [id])
-  role_id Int
+  id        Int     @id @default(autoincrement())
+  name      String
+  retros    Retros? @relation(fields: [retros_id], references: [id])
+  retros_id Int
 
   Board Board[]
   @@index([id])
-  Thums Thums[]
 }
 
 model Board {
@@ -51,17 +43,6 @@ model Board {
   category_id Int
   users       Users?    @relation(fields: [user_id], references: [id])
   user_id     Int
-
-  @@index([id])
-  Thums Thums[]
-}
-
-model Thums {
-  id       Int    @id @default(autoincrement())
-  board    Board? @relation(fields: [board_id], references: [id])
-  board_id Int
-  users    Users? @relation(fields: [user_id], references: [id])
-  user_id  Int
 
   @@index([id])
 }
