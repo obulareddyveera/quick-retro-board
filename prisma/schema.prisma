@@ -17,9 +17,10 @@ model Category {
 }
 
 model Retros {
-  id       Int    @id @default(autoincrement())
+  id       Int     @id @default(autoincrement())
   teamName String
   passCode String
+  isActive Boolean
 
   Users Users[]
   @@index([id])
@@ -27,9 +28,12 @@ model Retros {
 
 model Users {
   id        Int     @id @default(autoincrement())
-  name      String
-  retros    Retros? @relation(fields: [retros_id], references: [id])
-  retros_id Int
+  firstName String
+  lastName  String
+  email     String
+  color     String
+  retros    Retros? @relation(fields: [retrosId], references: [id])
+  retrosId  Int
 
   Board Board[]
   @@index([id])
@@ -39,10 +43,10 @@ model Board {
   id          Int       @id @default(autoincrement())
   retroId     Int
   commentText String
-  category    Category? @relation(fields: [category_id], references: [id])
-  category_id Int
-  users       Users?    @relation(fields: [user_id], references: [id])
-  user_id     Int
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+  users       Users?    @relation(fields: [userId], references: [id])
+  userId      Int
 
   @@index([id])
 }
