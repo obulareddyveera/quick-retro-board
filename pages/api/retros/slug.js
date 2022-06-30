@@ -3,7 +3,6 @@ import prisma from '../../../prisma/client';
 export default async function retrosHandler(req, res) {
     const { method } = req;
     const { service, passCode } = req.query
-    console.log('--== query ', service, passCode);
     switch (method) {
         case "GET":
             try {
@@ -14,7 +13,6 @@ export default async function retrosHandler(req, res) {
                                 passCode: passCode
                             }
                         });
-                        console.log('--== doCodeCheck ', data);
                         if (data.length > 0) {
                             res.status(200).json({
                                 status: 409, 
