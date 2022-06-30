@@ -1,8 +1,6 @@
-import { faAdd, faCheck, faDeleteLeft, faRecycle, faTrashCan, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState, useContext } from 'react';
 import { Formik } from 'formik';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState, useContext } from 'react';
 
 import AccessCard from '../components/accessCard';
 import UserForm from '../components/userForm';
