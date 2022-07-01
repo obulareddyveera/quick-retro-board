@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Formik } from 'formik';
 import { useRouter } from 'next/router';
 
-import AccessCard from '../components/accessCard';
+import Template from '../components/template';
 import UserForm from '../components/userForm';
 import UserGrid from '../components/userGrid';
 
@@ -67,7 +67,7 @@ const BoardContainer = (props) => {
                                 const { dirty, errors, values, handleSubmit } = props;
                                 return (
                                     <>
-                                        <AccessCard>
+                                        <Template>
                                             <div className="tabs">
                                                 {
                                                     tabOptions.map((rec) => {
@@ -82,11 +82,12 @@ const BoardContainer = (props) => {
                                                             </>
                                                         )
                                                     })
-
                                                 }
                                             </div>
-                                            {tab && (<tab.component onJoinRetro={handleJoinReto} />)}
-                                        </AccessCard>
+                                            <div className='m-4'>
+                                                {tab && (<tab.component onJoinRetro={handleJoinReto} />)}
+                                            </div>
+                                        </Template>
 
                                     </>
                                 )

@@ -76,7 +76,7 @@ const JoinForm = () => {
                         onBlur={handleBlur}
                         value={values.color}
                     >
-                        <option disabled selected>Pick your favorite Color</option>
+                        <option selected>Pick your favorite Color</option>
                         <option className='text-red-500' value="bg-red-500">Red</option>
                         <option className='text-green-500' value="bg-green-500">Green</option>
                         <option className='text-blue-500' value="bg-blue-500">Blue</option>

@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 
 import RetroForm from '../components/retroForm';
 import store from './../context'
-import AccessCard from '../components/accessCard';
+import Template from '../components/template';
 
 const HomeContainer = () => {
     const context = useContext(store)
@@ -36,7 +36,7 @@ const HomeContainer = () => {
         <div className='flex flex-column items-center justify-center h-full'>
             <Formik
                 initialValues={{
-                    teamName: 'Quick Retro Board',
+                    teamName: '',
                     passCode: '',
                     newTeamRegister: false,
                 }}
@@ -59,7 +59,7 @@ const HomeContainer = () => {
                     const { dirty, errors, values, handleSubmit } = props;
                     return (
                         <>
-                            <AccessCard>
+                            <Template>
                                 <RetroForm />
                                 <div className="card-actions justify-end mt-4 w-full">
                                     <button
@@ -70,7 +70,7 @@ const HomeContainer = () => {
                                         Start Retro
                                     </button>
                                 </div>
-                            </AccessCard>
+                            </Template>
 
                         </>
                     )

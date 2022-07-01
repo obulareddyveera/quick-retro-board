@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 const RetroForm = () => {
-    const { values, errors, handleChange, handleBlur } = useFormikContext();
+    const { values, errors, touched, handleChange, handleBlur } = useFormikContext();
     return (
         <>
             <div className="form-control">
@@ -29,7 +29,7 @@ const RetroForm = () => {
                                 autoFocus
                             />
                             {
-                                errors && errors.teamName && (
+                                touched.teamName && errors && errors.teamName && (
 
                                     <div className="ml-2 p-4 text-red-700 border-l-4 border-red-700 bg-red-50" role="alert">
                                         <h3 className="text-sm font-medium">{errors.teamName}</h3>
@@ -52,7 +52,7 @@ const RetroForm = () => {
                         value={values.passCode}
                     />
                     {
-                        errors && errors.passCode && (
+                        touched.passCode && errors && errors.passCode && (
 
                             <div className="ml-2 p-4 text-red-700 border-l-4 border-red-700 bg-red-50" role="alert">
                                 <h3 className="text-sm font-medium">{errors.passCode}</h3>

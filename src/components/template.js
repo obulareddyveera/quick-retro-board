@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image';
 import React from 'react';
 
-const AccessCard = ({ children }) => {
-    const imageUrl = "https://burst.shopifycdn.com/photos/framed-quotes-behind-bike-rack.jpg?width=1850&format=pjpg&exif=1&iptc=1"
+const Template = ({ children }) => {
+    const imageUrl = "/quickRetroBoard.png"
     return (
         <>
             <div className="w-1/2 shadow-xl bg-white">
@@ -22,4 +21,4 @@ const AccessCard = ({ children }) => {
     )
 }
 
-export default AccessCard;
+export default Template;
